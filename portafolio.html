@@ -5,56 +5,58 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Portafolio · Angie Uesseler Cala</title>
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-<meta name="theme-color" content="#F4F4F2">
+<meta name="theme-color" content="#2B2B2B">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <style>
-body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-.v{max-width:1180px;margin:0 auto}
-.vtop{height:96px;background:var(--grad);display:flex;justify-content:space-between;align-items:flex-start;padding:28px 28px 0}
-.vbody{padding:28px 28px 64px}
-.back{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;display:inline-block;padding:6px 0}
-h1.t{font-size:clamp(44px,9vw,84px);font-weight:300;letter-spacing:-.025em;line-height:1;margin-top:28px}
-.sub{margin-top:14px;font-size:14px;font-weight:300;color:var(--label)}
-.grid{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:24px}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;background:#2B2B2B}
+.stage{background:var(--g);min-height:100svh;color:#E6EAE3;position:relative}
+.v{max-width:1180px;margin:0 auto;padding:30px 28px 56px;display:flex;flex-direction:column;min-height:100svh}
+.vtop{display:flex;justify-content:space-between;align-items:flex-start}
+.lang button{color:rgba(230,234,227,.55)}.lang button[aria-pressed=true]{color:#E6EAE3;border-bottom-color:#E6EAE3}
+.back{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;display:inline-block;padding:6px 0;margin-top:40px;color:#E6EAE3}
+h1.t{font-size:clamp(44px,9vw,92px);font-weight:300;letter-spacing:-.025em;line-height:1;margin-top:28px}
+.who{margin-top:14px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(230,234,227,.7)}
+.sub{margin-top:10px;font-size:14px;font-weight:300;color:rgba(230,234,227,.82)}
+.grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:24px}
 .th{display:block;width:100%;text-align:left}
-.th .im{aspect-ratio:1.414/1;background:#fff;box-shadow:0 0 0 1px var(--hair);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.th .im{aspect-ratio:1.414/1;background:#F4F4F2;box-shadow:0 10px 30px -18px rgba(0,0,0,.45);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .th .im img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;pointer-events:none}
 .th .im .ph{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.th .n{margin-top:8px;font-size:10px;letter-spacing:.2em;color:var(--muted)}
-.notice{margin-top:48px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:20px 0;display:grid;gap:8px 40px;grid-template-columns:200px 1fr}
-.notice p{font-size:15px;font-weight:300;line-height:1.6}
-.notice a{font-weight:500;font-size:18px}
-@media(max-width:640px){.notice{grid-template-columns:1fr}}
-.lb{position:fixed;inset:0;background:rgba(244,244,242,.97);display:none;align-items:center;justify-content:center;z-index:10;padding:56px 16px}
+.th .n{display:none}
+.notice{margin-top:auto;padding-top:56px}
+.notice .in{border-top:1px solid rgba(43,43,43,.28);padding:18px 0 0;display:grid;gap:8px 40px;grid-template-columns:200px 1fr}
+.notice .cap{color:#2F3B3A}
+.notice p{font-size:15px;font-weight:300;line-height:1.6;color:#1E1E1E}
+.notice a{font-weight:500;font-size:18px;color:#1E1E1E}
+@media(max-width:640px){.notice .in{grid-template-columns:1fr}}
+.lb{position:fixed;inset:0;background:rgba(43,43,43,.94);display:none;align-items:center;justify-content:center;z-index:10;padding:56px 16px}
 .lb.on{display:flex}
-.lb .pg{max-width:min(1100px,100%);max-height:100%;aspect-ratio:1.414/1;width:100%;background:#fff;box-shadow:0 0 0 1px var(--hair);display:flex;align-items:center;justify-content:center;position:relative}
+.lb .pg{max-width:min(1100px,100%);max-height:100%;aspect-ratio:1.414/1;width:100%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;position:relative}
 .lb img{width:100%;height:100%;object-fit:contain;-webkit-user-drag:none}
 .lb .ph{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
-.lb .x,.lb .pv,.lb .nx{position:absolute;font-size:28px;font-weight:300;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+.lb .x,.lb .pv,.lb .nx{position:absolute;font-size:28px;font-weight:300;width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:#E6EAE3}
 .lb .x{top:8px;right:8px}.lb .pv{left:4px;top:50%}.lb .nx{right:4px;top:50%}
-.lb .cnt{position:absolute;top:20px;left:24px;font-size:11px;letter-spacing:.22em;color:var(--label)}
+.lb .cnt{position:absolute;top:20px;left:24px;font-size:11px;letter-spacing:.22em;color:rgba(230,234,227,.8)}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="seal" viewBox="0 0 270 270"><path id="sat" d="M31 135A104 104 0 0 1 239 135" fill="none"/><path id="sab" d="M24 135A111 111 0 0 0 246 135" fill="none"/><circle cx="135" cy="135" r="135" fill="#34454A"/><circle cx="27" cy="135" r="2" fill="#F4F4F2"/><circle cx="243" cy="135" r="2" fill="#F4F4F2"/><text font-family="Jost,sans-serif" font-size="13" font-weight="500" letter-spacing="5.6" fill="#F4F4F2"><textPath href="#sat" startOffset="50%" text-anchor="middle">ANGIE UESSELER CALA</textPath></text><text font-family="Jost,sans-serif" font-size="9.5" font-weight="400" letter-spacing="4.6" fill="#F4F4F2"><textPath href="#sab" startOffset="50%" text-anchor="middle">INDUSTRIAL &amp; PRODUCT DESIGNER</textPath></text><g transform="translate(135 135) scale(.1364) translate(-540 -539.5)" fill="#F4F4F2"><path d="M376.6 675.1A212 212 0 0 1 638 352L638 477.9A116 116 0 1 0 448.2 610.9Z"/><path d="M656 327H751V752H656V717.4A212 212 0 0 1 388.3 688.1L459.4 623.4A116 116 0 0 0 656 540Z"/></g></symbol></defs></svg>
-<div class="v">
-  <div class="vtop grain">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="seal" viewBox="0 0 270 270"><path id="sat" d="M31 135A104 104 0 0 1 239 135" fill="none"/><path id="sab" d="M24 135A111 111 0 0 0 246 135" fill="none"/><circle cx="135" cy="135" r="135" fill="#E6EAE3"/><circle cx="27" cy="135" r="2" fill="#2B2B2B"/><circle cx="243" cy="135" r="2" fill="#2B2B2B"/><text font-family="Jost,sans-serif" font-size="13" font-weight="500" letter-spacing="5.6" fill="#2B2B2B"><textPath href="#sat" startOffset="50%" text-anchor="middle">ANGIE UESSELER CALA</textPath></text><text font-family="Jost,sans-serif" font-size="9.5" font-weight="400" letter-spacing="4.6" fill="#2B2B2B"><textPath href="#sab" startOffset="50%" text-anchor="middle">INDUSTRIAL &amp; PRODUCT DESIGNER</textPath></text><g transform="translate(135 135) scale(.1364) translate(-540 -539.5)" fill="#2B2B2B"><path d="M376.6 675.1A212 212 0 0 1 638 352L638 477.9A116 116 0 1 0 448.2 610.9Z"/><path d="M656 327H751V752H656V717.4A212 212 0 0 1 388.3 688.1L459.4 623.4A116 116 0 0 0 656 540Z"/></g></symbol></defs></svg>
+<div class="stage grain"><div class="v">
+  <div class="vtop">
     <svg class="seal" role="img" aria-label="Angie Uesseler Cala"><use href="#seal"/></svg>
-    <div class="lang"><button data-lang="es">ES</button><button data-lang="en">EN</button><button data-lang="it">IT</button></div>
+    <div class="lang"><button data-lang="it">IT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
   </div>
-  <div class="vbody">
-    <a class="back" id="back" href="index.html" data-i="back">← Volver al perfil</a>
-    <h1 class="t" data-i="title">Portafolio</h1>
-    <div class="cap" style="margin-top:14px">Angie Uesseler Cala</div>
-    <div class="sub" data-i="hint">Toca una página para verla en grande</div>
-    <div class="grid" id="grid"></div>
-    <div class="notice"><div class="cap" data-i="nt">Vista previa confidencial</div><div><p data-i="np">Para solicitar el portafolio completo:</p><a href="mailto:angie.uc.di@gmail.com">angie.uc.di@gmail.com</a></div></div>
-  </div>
-</div>
+  <a class="back" id="back" href="index.html" data-i="back">← Volver al perfil</a>
+  <h1 class="t" data-i="title">Portafolio</h1>
+  <div class="who">Angie Uesseler Cala</div>
+  <div class="sub" data-i="hint">Toca una página para verla en grande</div>
+  <div class="grid" id="grid"></div>
+  <div class="notice"><div class="in"><div class="cap" data-i="nt">Vista previa confidencial</div><div><p data-i="np">Para solicitar el portafolio completo:</p><a href="mailto:angie.uc.di@gmail.com">angie.uc.di@gmail.com</a></div></div></div>
+</div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Portfolio page">
   <div class="cnt" id="cnt"></div>
   <button class="x" id="x" aria-label="Close">×</button>
