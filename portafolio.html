@@ -12,53 +12,106 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <style>
-body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;background:#2B2B2B}
-.stage{background:var(--g);min-height:100svh;color:#E6EAE3;position:relative}
-.v{max-width:1180px;margin:0 auto;padding:30px 28px 56px;display:flex;flex-direction:column;min-height:100svh}
-.vtop{display:flex;justify-content:space-between;align-items:flex-start}
-.lang button{color:rgba(230,234,227,.55)}.lang button[aria-pressed=true]{color:#E6EAE3;border-bottom-color:#E6EAE3}
-.back{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;display:inline-block;padding:6px 0;margin-top:40px;color:#E6EAE3}
-h1.t{font-size:clamp(44px,9vw,92px);font-weight:300;letter-spacing:-.025em;line-height:1;margin-top:28px}
-.who{margin-top:14px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(230,234,227,.7)}
-.sub{margin-top:10px;font-size:14px;font-weight:300;color:rgba(230,234,227,.82)}
-.grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:24px}
-.th{display:block;width:100%;text-align:left}
-.th .im{aspect-ratio:1.414/1;background:#F4F4F2;box-shadow:0 10px 30px -18px rgba(0,0,0,.45);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.th .im img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;pointer-events:none}
-.th .im .ph{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.th .n{display:none}
-.notice{margin-top:auto;padding-top:56px}
-.notice .in{border-top:1px solid rgba(43,43,43,.28);padding:18px 0 0;display:grid;gap:8px 40px;grid-template-columns:200px 1fr}
-.notice .cap{color:#2F3B3A}
-.notice p{font-size:15px;font-weight:300;line-height:1.6;color:#1E1E1E}
-.notice a{font-weight:500;font-size:18px;color:#1E1E1E}
-@media(max-width:640px){.notice .in{grid-template-columns:1fr}}
-.lb{position:fixed;inset:0;background:rgba(43,43,43,.94);display:none;align-items:center;justify-content:center;z-index:10;padding:56px 16px}
+:root{--ch:#2B2B2B;--cel:#E6EAE3}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;background:#F4F4F2;color:var(--ch)}
+.lang button{color:rgba(230,234,227,.6)}.lang button[aria-pressed=true]{color:#E6EAE3;border-bottom-color:#E6EAE3}
+/* barra fija: identidad siempre presente */
+.bar{position:sticky;top:0;z-index:5;background:#2B2B2B;color:var(--cel);display:flex;align-items:center;gap:14px;padding:10px 20px;height:64px}
+.bar .seal{width:44px;height:44px;flex:none}
+.bar .nm{line-height:1.25}
+.bar .nm b{display:block;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.bar .nm span{font-size:10px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:rgba(230,234,227,.6)}
+.bar .sp{flex:1}
+.views{display:flex;gap:2px;border:1px solid rgba(230,234,227,.28);border-radius:99px;padding:2px}
+.views button{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:99px;color:rgba(230,234,227,.7)}
+.views button[aria-pressed=true]{background:var(--cel);color:var(--ch)}
+.bar .lang{margin-left:6px}
+/* portada del portafolio */
+.top0{background:linear-gradient(180deg,#2B2B2B 0%,#34454A 50%,#7E9692 82%,#BED2C3 100%);color:var(--cel);position:relative;overflow:hidden;padding:56px 28px 64px}
+.top0 .in{max-width:1240px;margin:0 auto;position:relative;z-index:1}
+.top0 .iso{position:absolute;right:-40px;top:-30px;width:420px;height:420px;color:var(--cel);opacity:.07;pointer-events:none}
+.back{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(230,234,227,.85)}
+h1.t{font-size:clamp(52px,9vw,112px);font-weight:300;letter-spacing:-.025em;line-height:1;margin-top:34px}
+.who{margin-top:18px;font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
+.sub{margin-top:8px;font-size:14px;font-weight:300;color:rgba(230,234,227,.75)}
+/* páginas */
+#pages{max-width:1360px;margin:0 auto;padding:36px 20px 20px;display:flex;flex-direction:column;gap:28px}
+.pgf{position:relative;margin:0;cursor:zoom-in}
+.pimg{position:relative;aspect-ratio:var(--r,1.6);background:#FDFCF8;box-shadow:0 1px 2px rgba(43,43,43,.08),0 18px 40px -22px rgba(43,43,43,.35);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;-webkit-user-drag:none;pointer-events:none}
+.pimg .ph{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#7C8785}
+/* marca de agua: una sola firma discreta, sin mosaico sobre la imagen */
+.wm{position:absolute;left:0;right:0;bottom:1.6%;text-align:center;font-size:clamp(7px,.85vw,11px);font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:rgba(43,43,43,.22);pointer-events:none;mix-blend-mode:multiply}
+.cap2{display:flex;justify-content:space-between;margin-top:10px;font-size:10.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#5C676E}
+/* vista índice */
+body.v-grid #pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:34px 28px}
+/* vista presentación */
+body.v-slide{background:#2B2B2B;overflow:hidden}
+body.v-slide .top0,body.v-slide .close{display:none}
+body.v-slide #pages{max-width:none;height:calc(100svh - 64px);padding:20px 70px 54px;display:block;position:relative}
+body.v-slide .pgf{display:none;height:100%;cursor:default}
+body.v-slide .pgf.on{display:flex;flex-direction:column;align-items:center;justify-content:center}
+body.v-slide .pimg{aspect-ratio:var(--r,1.6);max-width:100%;max-height:calc(100% - 30px);width:min(100%,calc((100svh - 64px - 124px)*var(--r,1.6)))}
+body.v-slide .cap2{width:min(100%,calc((100svh - 64px - 124px)*var(--r,1.6)));color:rgba(230,234,227,.7)}
+.snav{display:none}
+body.v-slide .snav{display:flex;position:fixed;top:50%;width:100%;justify-content:space-between;padding:0 10px;pointer-events:none;transform:translateY(-50%)}
+.snav button{pointer-events:auto;width:48px;height:48px;font-size:30px;font-weight:300;color:var(--cel)}
+/* cierre con identidad */
+.close{background:var(--g);color:#1E1E1E;margin-top:40px;padding:72px 28px 64px}
+.close .in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:36px 56px;align-items:center}
+.close .seal{width:150px;height:150px}
+.close h2{font-size:clamp(34px,5vw,56px);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:var(--ch)}
+.close p{margin-top:10px;font-size:15px;font-weight:300}
+.close a{display:inline-block;margin-top:6px;font-size:20px;font-weight:500;border-bottom:1px solid rgba(43,43,43,.5)}
+.close .cap{margin-top:30px;color:#2F3B3A}
+@media(max-width:700px){
+ .bar{padding:8px 14px;gap:10px;flex-wrap:nowrap}.bar .nm span{display:none}.bar .nm b{font-size:11px;letter-spacing:.16em}
+ .views button{padding:7px 9px;font-size:9px;letter-spacing:.1em}
+ .top0{padding:40px 20px 48px}.top0 .iso{width:280px;height:280px}
+ #pages{padding:22px 10px 10px;gap:20px}
+ body.v-slide #pages{padding:12px 10px 54px}
+ body.v-slide .snav{display:none}
+ .close .in{grid-template-columns:1fr}.close .seal{width:110px;height:110px}
+}
+/* visor ampliado */
+.lb{position:fixed;inset:0;background:rgba(30,30,30,.97);display:none;align-items:center;justify-content:center;z-index:10;padding:0}
 .lb.on{display:flex}
-.lb .pg{max-width:min(1100px,100%);max-height:100%;aspect-ratio:1.414/1;width:100%;background:#F4F4F2;display:flex;align-items:center;justify-content:center;position:relative}
-.lb img{width:100%;height:100%;object-fit:contain;-webkit-user-drag:none}
-.lb .ph{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
-.lb .x,.lb .pv,.lb .nx{position:absolute;font-size:28px;font-weight:300;width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:#E6EAE3}
-.lb .x{top:8px;right:8px}.lb .pv{left:4px;top:50%}.lb .nx{right:4px;top:50%}
-.lb .cnt{position:absolute;top:20px;left:24px;font-size:11px;letter-spacing:.22em;color:rgba(230,234,227,.8)}
+.lb .pg{position:relative;width:100vw;height:100svh;display:flex;align-items:center;justify-content:center;padding:56px 8px}
+.lb .pg .pimg{width:min(100%,calc((100svh - 112px)*var(--r,1.6)));max-height:100%;box-shadow:none}
+.lb.rot .pg .pimg{transform:rotate(90deg);width:calc(100svh - 24px);flex:none;max-width:none}
+.lb .x,.lb .pv,.lb .nx,.lb .rt{position:absolute;font-size:28px;font-weight:300;width:52px;height:52px;display:flex;align-items:center;justify-content:center;color:var(--cel);z-index:2}
+.lb .x{top:4px;right:4px}.lb .pv{left:2px;top:50%;margin-top:-26px}.lb .nx{right:2px;top:50%;margin-top:-26px}
+.lb .rt{top:4px;right:56px;font-size:22px;display:none}
+@media(max-width:700px) and (orientation:portrait){.lb .rt{display:flex}}
+.lb .cnt{position:absolute;top:20px;left:20px;font-size:11px;letter-spacing:.22em;color:rgba(230,234,227,.85);z-index:2}
 </style>
 </head>
-<body>
+<body class="v-scroll">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="seal" viewBox="0 0 270 270"><path id="sat" d="M31 135A104 104 0 0 1 239 135" fill="none"/><path id="sab" d="M24 135A111 111 0 0 0 246 135" fill="none"/><circle cx="135" cy="135" r="135" fill="#E6EAE3"/><circle cx="27" cy="135" r="2" fill="#2B2B2B"/><circle cx="243" cy="135" r="2" fill="#2B2B2B"/><text font-family="Jost,sans-serif" font-size="13" font-weight="500" letter-spacing="5.6" fill="#2B2B2B"><textPath href="#sat" startOffset="50%" text-anchor="middle">ANGIE UESSELER CALA</textPath></text><text font-family="Jost,sans-serif" font-size="9.5" font-weight="400" letter-spacing="4.6" fill="#2B2B2B"><textPath href="#sab" startOffset="50%" text-anchor="middle">INDUSTRIAL &amp; PRODUCT DESIGNER</textPath></text><g transform="translate(135 135) scale(.1364) translate(-540 -539.5)" fill="#2B2B2B"><path d="M376.6 675.1A212 212 0 0 1 638 352L638 477.9A116 116 0 1 0 448.2 610.9Z"/><path d="M656 327H751V752H656V717.4A212 212 0 0 1 388.3 688.1L459.4 623.4A116 116 0 0 0 656 540Z"/></g></symbol></defs></svg>
-<div class="stage grain"><div class="v">
-  <div class="vtop">
-    <svg class="seal" role="img" aria-label="Angie Uesseler Cala"><use href="#seal"/></svg>
-    <div class="lang"><button data-lang="it">IT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
-  </div>
-  <a class="back" id="back" href="index.html" data-i="back">← Volver al perfil</a>
+
+<header class="bar">
+  <svg class="seal" role="img" aria-label="Angie Uesseler Cala"><use href="#seal"/></svg>
+  <div class="nm"><b>Angie Uesseler Cala</b><span>Industrial &amp; Product Designer</span></div>
+  <div class="sp"></div>
+  <div class="views" id="views"><button data-v="scroll" data-i="vS">Lista</button><button data-v="slide" data-i="vP">Presentación</button><button data-v="grid" data-i="vG">Índice</button></div>
+  <div class="lang"><button data-lang="it">IT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+</header>
+<section class="top0 grain"><svg class="iso" viewBox="320 319 440 440" aria-hidden="true"><path fill="currentColor" d="M376.6 675.1A212 212 0 0 1 638 352L638 477.9A116 116 0 1 0 448.2 610.9Z"/><path fill="currentColor" d="M656 327H751V752H656V717.4A212 212 0 0 1 388.3 688.1L459.4 623.4A116 116 0 0 0 656 540Z"/></svg>
+  <div class="in"><a class="back" id="back" href="index.html" data-i="back">← Volver al perfil</a>
   <h1 class="t" data-i="title">Portafolio</h1>
   <div class="who">Angie Uesseler Cala</div>
-  <div class="sub" data-i="hint">Toca una página para verla en grande</div>
-  <div class="grid" id="grid"></div>
-  <div class="notice"><div class="in"><div class="cap" data-i="nt">Vista previa confidencial</div><div><p data-i="np">Para solicitar el portafolio completo:</p><a href="mailto:angie.uc.di@gmail.com">angie.uc.di@gmail.com</a></div></div></div>
-</div></div>
+  <div class="sub" data-i="hint">Toca una página para verla en grande</div></div>
+</section>
+<main id="pages"></main>
+<div class="snav"><button id="sp" aria-label="Previous">‹</button><button id="sn" aria-label="Next">›</button></div>
+<section class="close grain"><div class="in">
+  <svg class="seal" role="img" aria-label="Angie Uesseler Cala"><use href="#seal"/></svg>
+  <div><h2 data-i="thanks">Gracias</h2><p data-i="np">Para solicitar el portafolio completo:</p><a href="mailto:angie.uc.di@gmail.com">angie.uc.di@gmail.com</a>
+  <div class="cap" data-i="nt">Vista previa confidencial</div></div>
+</div></section>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Portfolio page">
   <div class="cnt" id="cnt"></div>
+  <button class="rt" id="rt" aria-label="Rotate">⟳</button>
   <button class="x" id="x" aria-label="Close">×</button>
   <button class="pv" id="pv" aria-label="Previous">‹</button>
   <div class="pg" id="pg"></div>
@@ -66,28 +119,43 @@ h1.t{font-size:clamp(44px,9vw,92px);font-weight:300;letter-spacing:-.025em;line-
 </div>
 <script>
 (function(){
-/* Pon aquí el número de páginas y sube las imágenes como assets/portafolio/01.jpg, 02.jpg… (aparecen como vista previa; no hay botón de descarga) */
-var TOTAL=7, EXT="jpg", DIR="assets/portafolio/";
+/* CONFIGURA: nº de páginas, formato y proporción (ancho/alto) de tus páginas. Imágenes en assets/portafolio/01.jpg, 02.jpg… */
+var TOTAL=7, EXT="jpg", DIR="assets/portafolio/", RATIO=1.6;
 var T={
-es:{back:"← Volver al perfil",title:"Portafolio",hint:"Toca una página para verla en grande",nt:"Vista previa confidencial",np:"Para solicitar el portafolio completo:",ph:"Página"},
-en:{back:"← Back to profile",title:"Portfolio",hint:"Tap a page to view it larger",nt:"Confidential preview",np:"To request the full portfolio:",ph:"Page"},
-it:{back:"← Torna al profilo",title:"Portfolio",hint:"Tocca una pagina per ingrandirla",nt:"Anteprima riservata",np:"Per richiedere il portfolio completo:",ph:"Pagina"}};
-var lang="es",cur=0;
+es:{back:"← Volver al perfil",title:"Portafolio",hint:"Toca una página para verla en grande",nt:"Vista previa confidencial",np:"Para solicitar el portafolio completo:",ph:"Página",vS:"Lista",vP:"Presentación",vG:"Índice",thanks:"Gracias"},
+en:{back:"← Back to profile",title:"Portfolio",hint:"Tap a page to view it larger",nt:"Confidential preview",np:"To request the full portfolio:",ph:"Page",vS:"List",vP:"Slides",vG:"Index",thanks:"Thank you"},
+it:{back:"← Torna al profilo",title:"Portfolio",hint:"Tocca una pagina per ingrandirla",nt:"Anteprima riservata",np:"Per richiedere il portfolio completo:",ph:"Pagina",vS:"Elenco",vP:"Presentazione",vG:"Indice",thanks:"Grazie"}};
+var lang="es",cur=1,mode="scroll",B=document.body;
+document.documentElement.style.setProperty("--r",RATIO);
 function pad(n){return (n<10?"0":"")+n}
 function pick(){var h=(location.hash||"").replace("#","").toLowerCase();if(T[h])return h;try{var s=localStorage.getItem("auc-lang");if(T[s])return s}catch(e){}var n=(navigator.language||"es").slice(0,2).toLowerCase();return T[n]?n:"es"}
-function tile(i,big){var w=document.createElement("div");w.className=big?"":"im";
+function page(i){var d=document.createElement("div");d.className="pimg";
 var im=new Image();im.draggable=false;im.alt="";im.src=DIR+pad(i)+"."+EXT;
 var ph=document.createElement("span");ph.className="ph";ph.textContent=T[lang].ph+" "+pad(i);
-im.onerror=function(){im.remove();w.appendChild(ph)};w.appendChild(im);return w}
-function build(){var g=document.getElementById("grid");g.innerHTML="";
-for(var i=1;i<=TOTAL;i++){(function(i){var b=document.createElement("button");b.className="th";b.appendChild(tile(i));var n=document.createElement("div");n.className="n";n.textContent=pad(i);b.appendChild(n);b.addEventListener("click",function(){open(i)});g.appendChild(b)})(i)}}
-function show(i){cur=i;var pg=document.getElementById("pg");pg.innerHTML="";var t=tile(i,true);while(t.firstChild)pg.appendChild(t.firstChild);document.getElementById("cnt").textContent=pad(i)+" / "+pad(TOTAL)}
-function open(i){show(i);document.getElementById("lb").classList.add("on");document.body.style.overflow="hidden"}
-function close(){document.getElementById("lb").classList.remove("on");document.body.style.overflow=""}
-function step(d){show(((cur-1+d+TOTAL)%TOTAL)+1)}
-document.getElementById("x").onclick=close;document.getElementById("pv").onclick=function(){step(-1)};document.getElementById("nx").onclick=function(){step(1)};
-document.getElementById("lb").addEventListener("click",function(e){if(e.target.id==="lb")close()});
-document.addEventListener("keydown",function(e){if(!document.getElementById("lb").classList.contains("on"))return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1)});
+im.onerror=function(){im.remove();d.insertBefore(ph,d.firstChild)};d.appendChild(im);
+var w=document.createElement("span");w.className="wm";w.textContent="© Angie Uesseler Cala";d.appendChild(w);return d}
+function build(){var m=document.getElementById("pages");m.innerHTML="";
+for(var i=1;i<=TOTAL;i++){(function(i){var f=document.createElement("figure");f.className="pgf";f.dataset.n=i;f.appendChild(page(i));
+var c=document.createElement("div");c.className="cap2";c.innerHTML="<span>"+pad(i)+" / "+pad(TOTAL)+"</span><span>Angie Uesseler Cala</span>";f.appendChild(c);
+f.addEventListener("click",function(){if(mode!=="slide")openLb(i)});m.appendChild(f)})(i)}
+mark()}
+function mark(){document.querySelectorAll(".pgf").forEach(function(f){f.classList.toggle("on",+f.dataset.n===cur)})}
+function setMode(v){mode=v;B.className="v-"+v;document.querySelectorAll("#views button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===v)});mark();window.scrollTo(0,0);try{localStorage.setItem("auc-view",v)}catch(e){}}
+function go(d){cur=((cur-1+d+TOTAL)%TOTAL)+1;mark()}
+function showLb(i){cur=i;var pg=document.getElementById("pg");pg.innerHTML="";pg.appendChild(page(i));document.getElementById("cnt").textContent=pad(i)+" / "+pad(TOTAL)}
+function openLb(i){showLb(i);document.getElementById("lb").classList.add("on");B.style.overflow="hidden"}
+function closeLb(){document.getElementById("lb").classList.remove("on","rot");B.style.overflow=""}
+function stepLb(d){showLb(((cur-1+d+TOTAL)%TOTAL)+1)}
+document.getElementById("x").onclick=closeLb;document.getElementById("pv").onclick=function(){stepLb(-1)};document.getElementById("nx").onclick=function(){stepLb(1)};
+document.getElementById("rt").onclick=function(){document.getElementById("lb").classList.toggle("rot")};
+document.getElementById("lb").addEventListener("click",function(e){if(e.target.id==="lb"||e.target.id==="pg")closeLb()});
+document.getElementById("sp").onclick=function(){go(-1)};document.getElementById("sn").onclick=function(){go(1)};
+document.addEventListener("keydown",function(e){var on=document.getElementById("lb").classList.contains("on");
+if(on){if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")stepLb(-1);if(e.key==="ArrowRight")stepLb(1)}
+else if(mode==="slide"){if(e.key==="ArrowLeft")go(-1);if(e.key==="ArrowRight"||e.key===" ")go(1)}});
+var tx=null;document.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+document.addEventListener("touchend",function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)<50)return;var on=document.getElementById("lb").classList.contains("on");if(on)stepLb(d<0?1:-1);else if(mode==="slide")go(d<0?1:-1)});
+document.querySelectorAll("#views button").forEach(function(b){b.addEventListener("click",function(){setMode(b.dataset.v)})});
 /* disuasión básica contra descarga (no es seguridad real) */
 document.addEventListener("contextmenu",function(e){e.preventDefault()});
 document.addEventListener("dragstart",function(e){e.preventDefault()});
@@ -95,7 +163,8 @@ function apply(l){lang=l;document.documentElement.lang=l;document.querySelectorA
 document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
 document.getElementById("back").href="index.html#"+l;document.title=T[l].title+" · Angie Uesseler Cala";try{localStorage.setItem("auc-lang",l)}catch(e){}build()}
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){history.replaceState(null,"","#"+b.dataset.lang);apply(b.dataset.lang)})});
-apply(pick());
+var q=(location.search.match(/v=(scroll|slide|grid)/)||[])[1];var sv=null;try{sv=localStorage.getItem("auc-view")}catch(e){}
+apply(pick());setMode(q||sv||"scroll");
 })();
 </script>
 </body>
