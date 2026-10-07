@@ -94,10 +94,10 @@ body.v-slide .snav{display:flex;position:fixed;top:50%;width:100%;justify-conten
   <div class="nm"><b>Angie Uesseler Cala</b><span>Industrial &amp; Product Designer</span></div>
   <div class="sp"></div>
   <div class="views" id="views"><button data-v="scroll" data-i="vS">Lista</button><button data-v="slide" data-i="vP">Presentación</button><button data-v="grid" data-i="vG">Índice</button></div>
-  <div class="lang"><button data-lang="it">IT</button><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+  <div class="lang"><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
 </header>
 <section class="top0 grain"><svg class="iso" viewBox="320 319 440 440" aria-hidden="true"><path fill="currentColor" d="M376.6 675.1A212 212 0 0 1 638 352L638 477.9A116 116 0 1 0 448.2 610.9Z"/><path fill="currentColor" d="M656 327H751V752H656V717.4A212 212 0 0 1 388.3 688.1L459.4 623.4A116 116 0 0 0 656 540Z"/></svg>
-  <div class="in"><a class="back" id="back" href="index.html" data-i="back">← Volver al perfil</a>
+  <div class="in"><a class="back" id="back" href="index.html#perfil" data-i="back">← Volver al perfil</a>
   <h1 class="t" data-i="title">Portafolio</h1>
   <div class="who">Angie Uesseler Cala</div>
   <div class="sub" data-i="hint">Toca una página para verla en grande</div></div>
@@ -161,7 +161,7 @@ document.addEventListener("contextmenu",function(e){e.preventDefault()});
 document.addEventListener("dragstart",function(e){e.preventDefault()});
 function apply(l){lang=l;document.documentElement.lang=l;document.querySelectorAll("[data-i]").forEach(function(el){var k=el.getAttribute("data-i");if(T[l][k]!=null)el.textContent=T[l][k]});
 document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
-document.getElementById("back").href="index.html#"+l;document.title=T[l].title+" · Angie Uesseler Cala";try{localStorage.setItem("auc-lang",l)}catch(e){}build()}
+document.getElementById("back").href="index.html#perfil";document.title=T[l].title+" · Angie Uesseler Cala";try{localStorage.setItem("auc-lang",l)}catch(e){}build()}
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){history.replaceState(null,"","#"+b.dataset.lang);apply(b.dataset.lang)})});
 var q=(location.search.match(/v=(scroll|slide|grid)/)||[])[1];var sv=null;try{sv=localStorage.getItem("auc-view")}catch(e){}
 apply(pick());setMode(q||sv||"scroll");
