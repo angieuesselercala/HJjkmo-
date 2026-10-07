@@ -50,13 +50,9 @@ h1{margin-top:18px;font-size:38px;font-weight:400;line-height:1.04;letter-spacin
 .plink{display:inline-block;margin-top:14px;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;border-bottom:1px solid rgba(43,43,43,.5);padding-bottom:3px}
 .foot{margin-top:8px;padding:16px 0 0;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--hair)}
 /* desktop: columna greydient fija + panel claro */
-@media(min-width:980px){
- .wrap{display:grid;grid-template-columns:460px minmax(0,1fr);max-width:1240px;margin:0 auto}
- .card{max-width:none;margin:0;position:sticky;top:0;height:100vh;min-height:0;overflow:auto}
- .more{display:none}
- .profile{display:block;max-width:none;margin:0;padding:64px 72px 80px 72px;animation:none}
- .profile::before{display:none}
- .sec{display:grid;grid-template-columns:190px 1fr;gap:0 40px;padding:22px 0 26px}
- .sec .b{margin-top:0}.sec .h{display:block}.sec .n{display:none}
- .ptitle{display:none}
+@media(min-width:700px){
+ body{background:var(--bg)}
+ .wrap{max-width:480px;margin:0 auto;box-shadow:0 0 60px rgba(43,43,43,.12)}
+ .card{max-width:none;min-height:100vh}
+ .profile{max-width:none}
 }
